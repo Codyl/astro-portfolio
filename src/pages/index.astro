@@ -1,4 +1,6 @@
 ---
+import Layout from "../layouts/Layout.astro";
+
 
 ---
 
@@ -11,7 +13,9 @@
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
 	</head>
+	<Layout>
 	<body>
-		<h1>Astro</h1>
+		<h1 class="text-3xl font-bold italic text-primary">Astro</h1>
 	</body>
+	</Layout>
 </html>
