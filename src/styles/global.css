@@ -1,16 +1,58 @@
 @import "tailwindcss";
 
 @theme {
-  --color-*: initial;
-  --color-primary: var(--color-primary, #000);
-  --color-secondary: var(--color-secondary, #000);
-  --color-accent: var(--color-accent, #000);
-  --color-background: var(--color-background, #fff);
+    --breakpoint-tablet: 640px;
+    --breakpoint-desktop: 1024px;
+    
+    --color-*: initial;
+
+   /* =========================
+     BACKGROUND SYSTEM
+     ========================= */
+  --color-base: oklch(17.894% 0.03937 251.442);       /* main background */
+  --color-surface: oklch(0.2 0.1 250);    /* cards */
+  --color-elevated: oklch(0.25 0.1 250);   /* hover / raised */
+  --color-overlay: oklch(0.3 0.1 250);    /* modals / inputs */
+
+  /* =========================
+     TEXT SYSTEM
+     ========================= */
+  --color-primary: oklch(100% 0.00011 271.152);  /* main headings */
+  --color-secondary: oklch(0.7 0.1 250);/* body text */
+  --color-muted: oklch(0.5 0.1 250);    /* labels / hints */
+
+  /* =========================
+     PRIMARY BRAND (CYAN)
+     ========================= */
+  /* --color-primary: oklch(0.55 0.1 187);     bright cyan */
+  --color-primary-hover: oklch(0.65 0.1 187);
+  --color-primary-muted: oklch(0.35 0.1 187);
+
+  /* =========================
+     ACCENT / SECONDARY / INTERACTIVE ELEMENTS
+     ========================= */
+  --color-accent: oklch(0.6 0.1 220);       /* subtle blue accent */
+  --color-accent-muted: oklch(0.4 0.1 220);
+
+  /* =========================
+     BORDER / DIVIDER
+     ========================= */
+  --color-border-subtle: oklch(0.2 0.1 250);
+  --color-border-default: oklch(0.25 0.1 250);
+
+  /* =========================
+     STATE COLORS
+     ========================= */
+  --color-success: oklch(0.5 0.1 140);
+  --color-warning: oklch(0.5 0.1 40);
+  --color-danger: oklch(0.5 0.1 0);
+
+  /* =========================
+     EFFECTS
+     ========================= */
+  --color-glow-primary: oklch(0.55 0.1 187); /* reuse for shadows */
 }
 
-:root {
-  --color-primary: #1e90ff;
-  --color-secondary: #ff6347;
-  --color-accent: #32cd32;
-  --color-background: #f0f0f0;
+button {
+    cursor: pointer;
 }
