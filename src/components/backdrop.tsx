@@ -47,7 +47,7 @@ const Backdrop = () => {
         const dist = Math.sqrt(dx * dx + dy * dy);
         const strength = Math.max(0, 1 - dist / 350);
 
-        const push = strength * 250;
+        const push = strength * 10;
         const angle = Math.atan2(dy, dx);
 
         const drawX = dot.x + Math.cos(angle) * push;
