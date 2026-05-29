@@ -41,14 +41,62 @@ export default function Navbar() {
           Cody Lillywhite
         </a>
         <ul className="tablet:flex hidden gap-4">
-          <NavigationContentItem to="/about">About</NavigationContentItem>
-          <NavigationContentItem to="/projects">Projects</NavigationContentItem>
-          <NavigationContentItem to="/knowledge-base">
+          <Button
+            variant="link"
+            onClick={() => {
+              document.getElementById("about")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          >
+            About
+          </Button>
+          <Button
+            variant="link"
+            onClick={() => {
+              document.getElementById("projects")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          >
+            Projects
+          </Button>
+          <Button
+            variant="link"
+            onClick={() => {
+              document.getElementById("knowledge-base")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          >
             Knowledge Base
-          </NavigationContentItem>
-          <NavigationContentItem to="/contact">Contact</NavigationContentItem>
+          </Button>
+          <Button
+            variant="link"
+            onClick={() => {
+              document.getElementById("contact")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          >
+            Contact
+          </Button>
         </ul>
-        <Button onClick={() => window.open("/resume.pdf", "_blank")}>
+        <Button
+          className="text-background"
+          onClick={() => {
+            const link = document.createElement("a");
+            link.href = "/cody-lillywhite.2026.edited.pdf";
+            link.download = "cody-lillywhite.2026.edited.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }}
+        >
           Download Resume
         </Button>
       </div>

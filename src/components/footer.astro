@@ -3,6 +3,7 @@ import Linkedin from "./svg/linkedin.astro";
 import Github from "./svg/github.astro";
 import Youtube from "./svg/youtube.astro";
 import Medium from "./svg/medium.astro";
+import { Button } from "./ui/button";
 ---
 
 <footer class="bg-surface-container-lowest text-primary mt-20 pt-8 pb-12">
@@ -17,22 +18,55 @@ import Medium from "./svg/medium.astro";
     </div>
 
     <nav class="tablet:flex-row flex flex-col items-center gap-4">
-      <a href="https://linkedin.com">About</a>
-      <a href="https://linkedin.com">Projects</a>
-      <a href="https://linkedin.com">Contact</a>
-      <a href="https://linkedin.com">Knowledge Base</a>
+      <Button
+        variant="link"
+        onClick={() => {
+          document.getElementById("about")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }}>About</Button
+      >
+      <Button
+        variant="link"
+        onClick={() => {
+          document.getElementById("projects")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }}>Projects</Button
+      >
+      <Button
+        variant="link"
+        onClick={() => {
+          document.getElementById("contact")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }}>Contact</Button
+      >
+      <Button
+        variant="link"
+        onClick={() => {
+          document.getElementById("knowledge-base")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }}>Knowledge Base</Button
+      >
     </nav>
 
     <nav class="flex items-center gap-4">
-      <a href="https://github.com"><Github className="text-primary size-5" /></a
+      <a href="https://github.com/Codyl"
+        ><Github className="text-primary size-5" /></a
       >
-      <a href="https://linkedin.com"
+      <a href="https://www.linkedin.com/in/cody-lillywhite/"
         ><Linkedin className="text-primary size-5" /></a
       >
-      <a href="https://linkedin.com"
+      <a href="https://youtube.com/@codylillywhite4245"
         ><Youtube className="text-primary size-5" /></a
       >
-      <a href="https://linkedin.com"
+      <a href="https://medium.com/@codylillyw"
         ><Medium className="text-primary size-5" /></a
       >
     </nav>

@@ -13,7 +13,9 @@ import Backdrop from "./backdrop";
     <h1
       class="text-primary text-5xl leading-none font-extrabold tracking-tight md:text-6xl"
     >
-      Crafting Logic in <span class="text-tertiary">The Void</span>
+      <span id="capability"></span>
+      <span class="typewriter-cursor text-tertiary">|</span>
+      <span class="text-tertiary">Engineer</span>
     </h1>
     <p class="sr-only">
       Search projects, articles, and case studies — tools and writing about
@@ -21,7 +23,7 @@ import Backdrop from "./backdrop";
     </p>
 
     <div class="mt-8 flex items-center justify-center gap-3">
-      <form class="w-full max-w-2xl">
+      <form class="tablet:w-xl w-md">
         <div class="relative">
           <Input
             aria-label="Search projects, articles, or videos"
@@ -34,7 +36,7 @@ import Backdrop from "./backdrop";
 
           <Button
             type="submit"
-            className="absolute top-1/2 right-3 -translate-y-1/2"
+            className="text-background absolute top-1/2 right-3 -translate-y-1/2"
           >
             Search
           </Button>
@@ -43,17 +45,99 @@ import Backdrop from "./backdrop";
     </div>
 
     <div class="mt-6 flex items-center justify-center gap-3">
-      <Button variant="outline" className="text-primary">
+      <Button
+        variant="outline"
+        className="text-primary"
+        onClick={() => {
+          document.getElementById("contact")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }}
+      >
         <SendHorizontal class="mr-2 size-4" />
         Contact Me</Button
       >
-      <Button variant="outline" className="text-primary">
+      <Button
+        variant="outline"
+        className="text-primary"
+        onClick={() => {
+          document.getElementById("projects")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }}
+      >
         <Rocket class="mr-2 size-4" />
         Featured Projects</Button
       >
-      <Button variant="outline" className="text-primary"
-        ><Newspaper class="mr-2 size-4" />Latest Articles</Button
+      <Button
+        variant="outline"
+        className="text-primary"
+        onClick={() => {
+          document.getElementById("knowledge-base")?.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }}><Newspaper class="mr-2 size-4" />Latest Articles</Button
       >
     </div>
   </div>
 </section>
+<style>
+  .typewriter-cursor {
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
+</style>
+<script is:inline>
+  const typingSpeed = 120;
+  const deletingSpeed = 60;
+  const pauseDelay = 1200;
+  const startDelay = 500;
+  const typewriterTexts = [
+    "Reliability-focused",
+    "Frontend",
+    "Quality Assurance",
+    "Full-stack",
+  ];
+
+  const target = document.getElementById("capability");
+  let textIndex = 0;
+  let charIndex = 0;
+  let deleting = false;
+
+  function updateText() {
+    if (!target) return;
+
+    const fullText = typewriterTexts[textIndex];
+
+    if (deleting) {
+      charIndex = Math.max(charIndex - 1, 0);
+      target.textContent = fullText.slice(0, charIndex);
+    } else {
+      charIndex = Math.min(charIndex + 1, fullText.length);
+      target.textContent = fullText.slice(0, charIndex);
+    }
+
+    let delay = deleting ? deletingSpeed : typingSpeed;
+
+    if (!deleting && charIndex === fullText.length) {
+      delay = pauseDelay;
+      deleting = true;
+    } else if (deleting && charIndex === 0) {
+      deleting = false;
+      textIndex = (textIndex + 1) % typewriterTexts.length;
+      delay = typingSpeed;
+    }
+
+    setTimeout(updateText, delay);
+  }
+
+  setTimeout(updateText, startDelay);
+</script>
