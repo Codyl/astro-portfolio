@@ -1,26 +1,41 @@
 ---
-
+import Linkedin from "./svg/linkedin.astro";
+import Github from "./svg/github.astro";
+import Youtube from "./svg/youtube.astro";
+import Medium from "./svg/medium.astro";
 ---
 
-<footer class="border-surface-3 mt-20 border-t pt-8 pb-12">
+<footer class="bg-depressed text-primary mt-20 pt-8 pb-12">
   <div
     class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 md:flex-row"
   >
     <div>
-      <p class="font-semibold">The Void</p>
+      <p class="font-semibold">Cody Lillywhite | Full Stack Developer</p>
       <p class="text-muted-foreground text-sm">
-        © 2024 The Void & The Spark. Built with logic and precision.
+        © 2026 Cody. All rights reserved.
       </p>
     </div>
 
-    <nav class="flex items-center gap-4">
-      <a class="text-muted-foreground text-sm" href="https://github.com"
-        >Github</a
-      >
-      <a class="text-muted-foreground text-sm" href="https://linkedin.com"
-        >LinkedIn</a
-      >
-      <a class="text-accent text-sm" href="/contact">Initiate Contact →</a>
+    <nav class="tablet:flex-row flex flex-col items-center gap-4">
+      <a href="https://linkedin.com">About</a>
+      <a href="https://linkedin.com">Projects</a>
+      <a href="https://linkedin.com">Contact</a>
+      <a href="https://linkedin.com">Knowledge Base</a>
     </nav>
+
+    <nav class="flex items-center gap-4">
+      <a href="https://github.com"><Github className="text-primary size-5" /></a
+      >
+      <a href="https://linkedin.com"
+        ><Linkedin className="text-primary size-5" /></a
+      >
+      <a href="https://linkedin.com"
+        ><Youtube className="text-primary size-5" /></a
+      >
+      <a href="https://linkedin.com"
+        ><Medium className="text-primary size-5" /></a
+      >
+    </nav>
+    <a class="text-primary text-sm" href="/contact">Contact Me →</a>
   </div>
 </footer>

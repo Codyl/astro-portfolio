@@ -9,6 +9,7 @@
   /* =========================
      BACKGROUND SYSTEM
      ========================= */
+  --color-depressed: #010f1f;
   --color-base: oklch(17.894% 0.03937 251.442); /* main background */
   --color-surface: oklch(0.2 0.1 250); /* cards */
   --color-elevated: oklch(0.25 0.1 250); /* hover / raised */
