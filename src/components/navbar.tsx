@@ -12,15 +12,15 @@ import {
 
 export default function Navbar() {
   return (
-    <nav className="bg-surface border-b border-border-default">
-      <div className="mx-auto px-4 py-2 flex gap-x-8 items-center justify-between">
+    <nav className="bg-surface border-border-default border-b">
+      <div className="mx-auto flex items-center justify-between gap-x-8 px-4 py-2">
         <NavigationMenu className="tablet:hidden">
           <NavigationMenuList>
             <NavigationMenuItem>
               <NavigationMenuTrigger className="text-primary">
                 <Menu className="size-5" />
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="flex flex-col space-y-2 p-4 bg-elevated">
+              <NavigationMenuContent className="bg-elevated flex flex-col space-y-2 p-4">
                 <ul className="w-max">
                   <NavigationContentItem to="/">Home</NavigationContentItem>
                   <NavigationContentItem to="/projects">
@@ -37,10 +37,10 @@ export default function Navbar() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
-        <a href="/" className="text-lg font-bold text-primary">
+        <a href="/" className="text-primary text-lg font-bold">
           My Portfolio
         </a>
-        <ul className="tablet:flex gap-4 hidden">
+        <ul className="tablet:flex hidden gap-4">
           <NavigationContentItem to="/about">About</NavigationContentItem>
           <NavigationContentItem to="/projects">Projects</NavigationContentItem>
           <NavigationContentItem to="/knowledge-base">

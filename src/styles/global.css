@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 @theme {
-    --breakpoint-tablet: 640px;
-    --breakpoint-desktop: 1024px;
-    
-    --color-*: initial;
+  --breakpoint-tablet: 640px;
+  --breakpoint-desktop: 1024px;
 
-   /* =========================
+  --color-*: initial;
+
+  /* =========================
      BACKGROUND SYSTEM
      ========================= */
-  --color-base: oklch(17.894% 0.03937 251.442);       /* main background */
-  --color-surface: oklch(0.2 0.1 250);    /* cards */
-  --color-elevated: oklch(0.25 0.1 250);   /* hover / raised */
-  --color-overlay: oklch(0.3 0.1 250);    /* modals / inputs */
+  --color-base: oklch(17.894% 0.03937 251.442); /* main background */
+  --color-surface: oklch(0.2 0.1 250); /* cards */
+  --color-elevated: oklch(0.25 0.1 250); /* hover / raised */
+  --color-overlay: oklch(0.3 0.1 250); /* modals / inputs */
 
   /* =========================
      TEXT SYSTEM
      ========================= */
-  --color-primary: oklch(100% 0.00011 271.152);  /* main headings */
-  --color-secondary: oklch(0.7 0.1 250);/* body text */
-  --color-muted: oklch(0.5 0.1 250);    /* labels / hints */
+  --color-primary: oklch(100% 0.00011 271.152); /* main headings */
+  --color-secondary: oklch(0.7 0.1 250); /* body text */
+  --color-muted: oklch(0.5 0.1 250); /* labels / hints */
 
   /* =========================
      PRIMARY BRAND (CYAN)
@@ -31,7 +31,7 @@
   /* =========================
      ACCENT / SECONDARY / INTERACTIVE ELEMENTS
      ========================= */
-  --color-accent: oklch(0.6 0.1 220);       /* subtle blue accent */
+  --color-accent: oklch(0.6 0.1 220); /* subtle blue accent */
   --color-accent-muted: oklch(0.4 0.1 220);
 
   /* =========================
@@ -54,5 +54,5 @@
 }
 
 button {
-    cursor: pointer;
+  cursor: pointer;
 }
