@@ -1,8 +1,9 @@
 ---
 import { Input } from "./ui/input";
 import { Search, SendHorizontal, Rocket, Newspaper } from "@lucide/astro";
-import { Button } from "./ui/button";
+import ScrollButton from "./scroll-button";
 import Backdrop from "./backdrop";
+import { Button } from "./ui/button";
 ---
 
 <section
@@ -45,41 +46,30 @@ import Backdrop from "./backdrop";
     </div>
 
     <div class="mt-6 flex items-center justify-center gap-3">
-      <Button
+      <ScrollButton
+        client:idle
         variant="outline"
         className="text-primary"
-        onClick={() => {
-          document.getElementById("contact")?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }}
+        id="contact"
       >
         <SendHorizontal class="mr-2 size-4" />
-        Contact Me</Button
+        Contact Me</ScrollButton
       >
-      <Button
+      <ScrollButton
+        client:idle
         variant="outline"
         className="text-primary"
-        onClick={() => {
-          document.getElementById("projects")?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }}
+        id="projects"
       >
         <Rocket class="mr-2 size-4" />
-        Featured Projects</Button
+        Featured Projects</ScrollButton
       >
-      <Button
+      <ScrollButton
+        client:idle
         variant="outline"
         className="text-primary"
-        onClick={() => {
-          document.getElementById("knowledge-base")?.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }}><Newspaper class="mr-2 size-4" />Latest Articles</Button
+        id="knowledge-base"
+        ><Newspaper class="mr-2 size-4" />Latest Articles</ScrollButton
       >
     </div>
   </div>
