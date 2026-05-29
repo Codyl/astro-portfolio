@@ -10,7 +10,7 @@ export async function getEmbedding(text) {
       input: text,
     }),
   });
-  console.log("embedding res", res);
+
   const data = await res.json();
   return data.data[0].embedding;
 }

@@ -1,10 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "./ui/input";
-import { Search, SendHorizontal, Rocket, Newspaper } from "lucide-react";
+import { Search, SendHorizontal, Rocket, Newspaper, Info } from "lucide-react";
 import ScrollButton from "./scroll-button";
 import Backdrop from "./backdrop";
 import { Button } from "./ui/button";
 import "./hero.css";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+  TooltipProvider,
+} from "./ui/tooltip";
+
+const MONTHLY_SUMMARY_LIMIT = 15;
 
 const Hero = () => {
   const [query, setQuery] = useState("");
@@ -15,10 +23,24 @@ const Hero = () => {
   const [summary, setSummary] = useState("");
   const hasStarted = React.useRef(false);
 
+  let monthYearUsageCount = 0;
+  try {
+    monthYearUsageCount = parseInt(
+      localStorage.getItem(
+        new Date().getMonth().toString() +
+          "-" +
+          new Date().getFullYear().toString(),
+      ) || "0",
+    );
+  } catch {
+    // ignore parsing errors and default to 0
+  }
+
   async function handleSearch() {
     if (
       query.length === 0 ||
-      (isSummaryMode ? query.length >= 200 : query.length >= 100)
+      (isSummaryMode ? query.length >= 200 : query.length >= 100) ||
+      monthYearUsageCount >= MONTHLY_SUMMARY_LIMIT
     ) {
       return;
     }
@@ -38,13 +60,20 @@ const Hero = () => {
 
     const data = await res.json();
     if (isSummaryMode) {
-      console.log("search results", data);
       setResults([]);
       setSummary(data.answer);
     } else {
       setSummary("");
       setResults(data);
     }
+    const monthYearKey =
+      new Date().getMonth().toString() +
+      "-" +
+      new Date().getFullYear().toString();
+    localStorage.setItem(
+      monthYearKey,
+      localStorage.getItem(monthYearKey) || "0",
+    );
   }
 
   const animate = () => {
@@ -130,6 +159,20 @@ const Hero = () => {
                 onChange={() => setIsSummaryMode(!isSummaryMode)}
               />
               AI Summary mode
+              <TooltipProvider>
+                <Tooltip>
+                  <TooltipTrigger asChild>
+                    <Info className="text-tertiary size-4" />
+                  </TooltipTrigger>
+                  <TooltipContent className="bg-surface-container-highest text-primary w-md">
+                    <p>
+                      Use AI to generate a summary of Codys job fit for your
+                      company based on the content he has created. Limit 15
+                      summary requests per month.
+                    </p>
+                  </TooltipContent>
+                </Tooltip>
+              </TooltipProvider>
             </label>
             <div className="relative">
               <Input
@@ -191,6 +234,17 @@ const Hero = () => {
             </div>
           ))}
         </div>
+        {40 >= MONTHLY_SUMMARY_LIMIT && isSummaryMode && (
+          <div className="absolute left-1/2 mt-4 w-full max-w-4xl -translate-x-1/2">
+            <div className="bg-surface-container-high rounded border p-3">
+              <h2 className="font-bold">Monthly Summary Limit Reached</h2>
+              <p>
+                You have reached the monthly limit of {MONTHLY_SUMMARY_LIMIT} AI
+                summaries. Please try again next month.
+              </p>
+            </div>
+          </div>
+        )}
         {query.length > 199 && isSummaryMode && (
           <div className="absolute left-1/2 mt-4 w-full max-w-4xl -translate-x-1/2">
             <div className="bg-surface-container-high rounded border p-3">

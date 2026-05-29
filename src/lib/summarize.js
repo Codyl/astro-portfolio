@@ -19,7 +19,7 @@ Instructions:
 - Never use discouraging or negative language about the candidate
 - Do not say the candidate is "not a fit" or "poor fit"
 `;
-  console.log("API KEY LOADED:", !!import.meta.env.OPENAI_API_KEY);
+
   const response = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: {
