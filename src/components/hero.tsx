@@ -8,16 +8,26 @@ import "./hero.css";
 
 const Hero = () => {
   const [query, setQuery] = useState("");
+  const [isSummaryMode, setIsSummaryMode] = useState(false);
   const [results, setResults] = useState<
     { id: string; title: string; description: string; url: string }[]
   >([]);
+  const [summary, setSummary] = useState("");
   const hasStarted = React.useRef(false);
 
   async function handleSearch() {
+    if (
+      query.length === 0 ||
+      (isSummaryMode ? query.length >= 200 : query.length >= 100)
+    ) {
+      return;
+    }
+
     const res = await fetch("http://localhost:4321/api/search", {
       method: "POST",
       body: JSON.stringify({
         inputText: query,
+        isGenerative: isSummaryMode,
       }),
       headers: { "Content-Type": "application/json" },
     });
@@ -27,7 +37,14 @@ const Hero = () => {
     }
 
     const data = await res.json();
-    setResults(data);
+    if (isSummaryMode) {
+      console.log("search results", data);
+      setResults([]);
+      setSummary(data.answer);
+    } else {
+      setSummary("");
+      setResults(data);
+    }
   }
 
   const animate = () => {
@@ -106,20 +123,47 @@ const Hero = () => {
               handleSearch();
             }}
           >
+            <label className="mt-3 flex items-center gap-2 text-sm">
+              <input
+                type="checkbox"
+                checked={isSummaryMode}
+                onChange={() => setIsSummaryMode(!isSummaryMode)}
+              />
+              AI Summary mode
+            </label>
             <div className="relative">
               <Input
-                aria-label="Search projects, articles, or videos"
-                placeholder="Search projects, articles, or videos..."
-                className="bg-elevated h-12 pl-12"
+                aria-label={
+                  isSummaryMode
+                    ? "Ask a question"
+                    : "Search projects, articles, or videos"
+                }
+                placeholder={
+                  isSummaryMode
+                    ? "Ask about fit for job description..."
+                    : "Search projects, articles, or videos..."
+                }
+                className="bg-surface-container h-12 truncate pr-20 pl-12"
                 onChange={(e) => setQuery(e.target.value)}
                 value={query}
+                maxLength={isSummaryMode ? 200 : 100}
               />
               <Search className="text-tertiary absolute top-1/2 left-3 -translate-y-1/2" />
 
               <Button
+                disabled={
+                  query.length === 0 ||
+                  (isSummaryMode ? query.length >= 200 : query.length >= 100)
+                }
                 type="button"
-                className="text-background absolute top-1/2 right-3 -translate-y-1/2"
-                onClick={() => {
+                className={`text-background absolute top-1/2 right-3 -translate-y-1/2 ${
+                  query.length === 0 ||
+                  (isSummaryMode ? query.length >= 200 : query.length >= 100)
+                    ? "cursor-not-allowed opacity-50"
+                    : ""
+                }`}
+                onClick={(e) => {
+                  e.preventDefault();
                   handleSearch();
                 }}
               >
@@ -147,6 +191,36 @@ const Hero = () => {
             </div>
           ))}
         </div>
+        {query.length > 199 && isSummaryMode && (
+          <div className="absolute left-1/2 mt-4 w-full max-w-4xl -translate-x-1/2">
+            <div className="bg-surface-container-high rounded border p-3">
+              <h2 className="font-bold">Input Too Long</h2>
+              <p>
+                Your question exceeds the 200 character limit for summary mode.
+                Please shorten your question and try again.
+              </p>
+            </div>
+          </div>
+        )}
+        {query.length > 99 && !isSummaryMode && (
+          <div className="absolute left-1/2 mt-4 w-full max-w-4xl -translate-x-1/2">
+            <div className="bg-surface-container-high rounded border p-3">
+              <h2 className="font-bold">Input Too Long</h2>
+              <p>
+                Your question exceeds the 100 character limit. Please shorten
+                your question and try again.
+              </p>
+            </div>
+          </div>
+        )}
+        {summary && (
+          <div className="absolute left-1/2 mx-4 mt-4 max-h-64 w-full max-w-4xl -translate-x-1/2 divide-y-2 overflow-auto">
+            <div className="bg-surface-container-high rounded border p-3">
+              <h2 className="font-bold">AI Summary</h2>
+              <p>{summary}</p>
+            </div>
+          </div>
+        )}
 
         <div className="mt-6 flex items-center justify-center gap-3">
           <ScrollButton variant="outline" className="text-primary" id="contact">

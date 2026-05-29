@@ -5,6 +5,7 @@ import {
 } from "@aws-sdk/client-bedrock-runtime";
 import { cosineSimilarity } from "../../lib/similarity";
 import embeddings from "../../data/embeddings.json";
+import { ask } from "../../lib/ask";
 
 const client = new BedrockRuntimeClient({
   region: "us-east-1",
@@ -27,8 +28,7 @@ async function getEmbedding(inputText: string) {
 }
 
 export const POST = (async ({ request }) => {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  let body: any;
+  let body: { inputText?: string; isGenerative?: boolean } = {};
   if (request.headers.get("Content-Type") === "application/json") {
     try {
       body = await request.json();
@@ -52,6 +52,14 @@ export const POST = (async ({ request }) => {
     });
   }
 
+  if (body.isGenerative) {
+    const result = await ask(inputText, embeddings);
+
+    return new Response(JSON.stringify(result), {
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+
   const queryEmbedding = await getEmbedding(inputText);
 
   const scored = embeddings.map((item) => ({
@@ -60,7 +68,6 @@ export const POST = (async ({ request }) => {
   }));
 
   scored.sort((a, b) => b.score - a.score);
-  console.log(scored.map((item) => item.score));
   return new Response(
     JSON.stringify(scored.filter((val) => val.score > 0.03).slice(0, 5)),
     {
