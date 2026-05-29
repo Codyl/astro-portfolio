@@ -38,7 +38,7 @@ export default function Navbar() {
           </NavigationMenuList>
         </NavigationMenu>
         <a href="/" className="text-primary text-lg font-bold">
-          My Portfolio
+          Cody Lillywhite
         </a>
         <ul className="tablet:flex hidden gap-4">
           <NavigationContentItem to="/about">About</NavigationContentItem>

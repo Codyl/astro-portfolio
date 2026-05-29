@@ -163,7 +163,7 @@ function NavigationContentItem({
   return (
     <li
       className={cn(
-        "text-primary focus:bg-accent data-[state=open]:bg-accent hover:bg-primary-hover block cursor-pointer rounded-sm px-3 py-1.5 text-sm outline-none select-none",
+        "text-primary focus:bg-tertiary data-[state=open]:bg-tertiary hover:bg-primary-hover block cursor-pointer rounded-sm px-3 py-1.5 text-sm outline-none select-none",
         className,
       )}
       {...props}

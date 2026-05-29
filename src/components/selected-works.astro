@@ -1,79 +1,131 @@
 ---
-
+import { MoveRight } from "@lucide/astro";
 ---
 
-<section class="mt-16">
-  <div class="mb-6 flex items-baseline justify-between">
-    <h2 class="text-2xl font-semibold">Selected Works</h2>
-    <span class="text-accent text-xs uppercase"
-      >A collection of digital architectures</span
+<!-- Project Section (High Impact Project Cards) -->
+<section class="space-y-stack-lg">
+  <div
+    class="gap-stack-sm border-outline-variant/20 pb-stack-sm flex flex-col justify-between border-b md:flex-row md:items-end"
+  >
+    <h2
+      class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface"
     >
+      Selected Works
+    </h2>
+    <p
+      class="font-label-mono text-label-mono text-tertiary tracking-widest uppercase"
+    >
+      A Collection of Digital Architectures
+    </p>
   </div>
-
-  <div class="grid gap-8">
-    <article class="bg-surface-2 grid gap-6 rounded-xl p-6 md:grid-cols-3">
-      <div class="bg-muted overflow-hidden rounded md:col-span-2">
-        <img
-          src="/assets/screens/quantum-ledger.png"
-          alt="Quantum Ledger preview"
-          class="h-56 w-full object-cover"
-        />
-      </div>
-      <div class="flex flex-col justify-between md:col-span-1">
-        <div>
-          <span class="text-muted-foreground text-xs uppercase"
-            >2024 / Full-stack system</span
-          >
-          <h3 class="mt-2 text-xl font-bold">
-            Quantum Ledger: Decentralized SaaS
-          </h3>
-          <p class="text-muted-foreground mt-3 text-sm">
-            A high-performance financial infrastructure built with Rust and
-            Next.js, featuring sub-second latency for complex global
-            transactions.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="badge">Rust</span>
-            <span class="badge">Next.js</span>
-            <span class="badge">Postgres</span>
-          </div>
+  <!-- Single Column Scroll of Impact Cards -->
+  <div class="space-y-stack-lg">
+    <!-- Project 1 -->
+    <div class="group glass-panel relative overflow-hidden rounded-xl">
+      <div class="flex h-full flex-col lg:flex-row">
+        <div class="h-64 w-full overflow-hidden lg:h-[500px] lg:w-2/3">
+          <img
+            class="h-full w-full scale-100 object-cover grayscale transition-all duration-700 ease-in-out group-hover:scale-105 group-hover:grayscale-0"
+            data-alt="A detailed wide shot of a complex software development dashboard interface displayed on a high-resolution screen within a dark, modern studio setting. The UI features intricate data visualizations and code editors glowing in electric blue and crisp white against a deep obsidian background. The atmosphere is sophisticated and highlights a high-tier consultant's technical precision and minimalist aesthetic."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPbrllafIg1S64ioM7QXfMoGumzre6S1xZeMLD1qWFRBrc2ZCZUSPe7eiapxZBsHdFocjGNI2YLlAYtg7InJCGWN9Tja1NmZYOOAmD0CWMjTnbF0pQ33s54uhU9bfFTOqrKMXLwjR8hONhmNQPZh-K-NOAyqZqnw3rV2XBl5lGEyRJHeB4pg5QBSSmTFabZ0i27fAC2YQh6WtgGEx2_BP2K74yE3FEjn7mlaiHK_VJCnnJLmTqEy6O57eJbnLVEenXbA0MOwqHgA"
+          />
         </div>
-        <a
-          class="text-accent mt-4 inline-flex items-center"
-          href="/projects/quantum-ledger">View Case Study →</a
-        >
-      </div>
-    </article>
-
-    <article class="bg-surface-2 grid gap-6 rounded-xl p-6 md:grid-cols-3">
-      <div class="bg-muted overflow-hidden rounded md:col-span-2">
-        <img
-          src="/assets/screens/nebulasrv.png"
-          alt="Nebula Cloud Orchestrator preview"
-          class="h-56 w-full object-cover"
-        />
-      </div>
-      <div class="flex flex-col justify-between md:col-span-1">
-        <div>
-          <span class="text-muted-foreground text-xs uppercase"
-            >2023 / Infrastructure</span
-          >
-          <h3 class="mt-2 text-xl font-bold">Nebula Cloud Orchestrator</h3>
-          <p class="text-muted-foreground mt-3 text-sm">
-            Custom Kubernetes automation platform designed for high-scale
-            enterprise deployments, reducing operational overhead by 40%.
-          </p>
-          <div class="mt-4 flex flex-wrap gap-2">
-            <span class="badge">Go</span>
-            <span class="badge">Kubernetes</span>
-            <span class="badge">Terraform</span>
+        <div class="p-stack-lg flex w-full flex-col justify-between lg:w-1/3">
+          <div>
+            <span
+              class="font-label-mono text-label-mono text-on-surface-variant mb-2 block"
+              >2024 / FULL-STACK SYSTEM</span
+            >
+            <h3
+              class="font-headline-md text-headline-md text-on-surface mb-stack-sm"
+            >
+              Quantum Ledger: Decentralized SaaS
+            </h3>
+            <p class="text-on-surface-variant mb-stack-md leading-relaxed">
+              A high-performance financial infrastructure built with Rust and
+              Next.js, featuring sub-second latency for complex global
+              transactions.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="border-tertiary/20 text-tertiary text-label-mono font-label-mono rounded border px-3 py-1"
+                >Rust</span
+              >
+              <span
+                class="border-tertiary/20 text-tertiary text-label-mono font-label-mono rounded border px-3 py-1"
+                >Next.js 14</span
+              >
+              <span
+                class="border-tertiary/20 text-tertiary text-label-mono font-label-mono rounded border px-3 py-1"
+                >PostgreSQL</span
+              >
+            </div>
           </div>
+          <a
+            class="mt-stack-lg text-on-surface group-hover:text-tertiary flex items-center gap-2 font-bold transition-colors"
+            href="#"
+          >
+            View Demo
+            <span
+              class="material-symbols-outlined transition-transform group-hover:translate-x-1"
+              data-icon="arrow_forward"><MoveRight /></span
+            >
+          </a>
         </div>
-        <a
-          class="text-accent mt-4 inline-flex items-center"
-          href="/projects/nebula-orchestrator">View Case Study →</a
-        >
       </div>
-    </article>
+    </div>
+    <!-- Project 2 -->
+    <div class="group glass-panel relative overflow-hidden rounded-xl">
+      <div class="flex h-full flex-col lg:flex-row-reverse">
+        <div class="h-64 w-full overflow-hidden lg:h-[500px] lg:w-2/3">
+          <img
+            class="h-full w-full scale-100 object-cover grayscale transition-all duration-700 ease-in-out group-hover:scale-105 group-hover:grayscale-0"
+            data-alt="A clean and artistic top-down view of a network server rack illuminated by subtle electric blue LED strips in a darkened room. The lighting emphasizes the orderly cables and sleek metallic hardware, symbolizing robust back-end engineering and clean code. The scene captures a professional and authoritative technological environment with high contrast between deep shadows and bright accents."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCTWItAky1rZGLgrAJJ1CTIfg1wQRLCj9wXE2HW-_l1yAWw4W4Hyog2vT0ymaJaditrAQqhX8zbiIhN0USl9uc7JJficgyxvHlvtT1AGbmc41QITIjHFEUyROp3dfM2bCjuRIgodrIFHnziQ54RD4HSG6JjG-vQH2ZuvMA8_uG7dNUaGQNDexyY604Xx6O32MGr2WZG4R8jORuy32awufUVICo4lQRFGDwi9zwnc04hWVfTY6U4l8Xy6Sw0e_DFuvXHF2tmIiDppg"
+          />
+        </div>
+        <div class="p-stack-lg flex w-full flex-col justify-between lg:w-1/3">
+          <div>
+            <span
+              class="font-label-mono text-label-mono text-on-surface-variant mb-2 block"
+              >2023 / INFRASTRUCTURE</span
+            >
+            <h3
+              class="font-headline-md text-headline-md text-on-surface mb-stack-sm"
+            >
+              Nebula Cloud Orchestrator
+            </h3>
+            <p class="text-on-surface-variant mb-stack-md leading-relaxed">
+              Custom Kubernetes automation platform designed for high-scale
+              enterprise deployments, reducing operational overhead by 40%.
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span
+                class="border-tertiary/20 text-tertiary text-label-mono font-label-mono rounded border px-3 py-1"
+                >Go</span
+              >
+              <span
+                class="border-tertiary/20 text-tertiary text-label-mono font-label-mono rounded border px-3 py-1"
+                >Kubernetes</span
+              >
+              <span
+                class="border-tertiary/20 text-tertiary text-label-mono font-label-mono rounded border px-3 py-1"
+                >Terraform</span
+              >
+            </div>
+          </div>
+          <a
+            class="mt-stack-lg text-on-surface group-hover:text-tertiary flex items-center gap-2 font-bold transition-colors"
+            href="#"
+          >
+            View Demo
+            <span
+              class="material-symbols-outlined transition-transform group-hover:translate-x-1"
+              data-icon="arrow_forward"><MoveRight /></span
+            >
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
