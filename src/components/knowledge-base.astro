@@ -1,5 +1,5 @@
 ---
-import { CirclePlay } from "@lucide/astro";
+import { CirclePlay, ExternalLink, Newspaper } from "@lucide/astro";
 ---
 
 <section class="text-primary mt-16">
@@ -30,30 +30,28 @@ import { CirclePlay } from "@lucide/astro";
         <div class="space-y-stack-sm">
           <div class="flex items-start justify-between">
             <span
-              class="material-symbols-outlined text-tertiary text-4xl"
-              data-icon="terminal">terminal</span
-            >
-            <span
               class="text-label-mono font-label-mono bg-tertiary/10 text-tertiary rounded px-2 py-1"
               >GUIDE</span
             >
           </div>
           <h3 class="font-headline-md text-headline-md text-on-surface">
-            Mastering Memory Safety in Rust
+            NodeJS Cybersecurity Best Practices
           </h3>
           <p class="text-on-surface-variant text-body-md leading-relaxed">
-            A comprehensive 4,000-word deep dive into the borrow checker,
-            ownership, and writing blazingly fast code without the fear of
-            segfaults.
+            A comprehensive guide covering essential security practices for
+            Node.js applications, including secure coding techniques,
+            vulnerability management, and best practices for authentication and
+            data protection.
           </p>
         </div>
         <div class="flex items-center justify-between">
           <span class="text-label-mono font-label-mono text-on-surface-variant"
-            >Read time: 12 min</span
+            >Read time: 6 min</span
           >
-          <span
+          <a
+            href="https://medium.com/@codylillyw/nodejs-cybersecurity-2022-best-practices-summarized-46580a303b2a"
             class="material-symbols-outlined group-hover:text-tertiary"
-            data-icon="open_in_new">open_in_new</span
+            data-icon="open_in_new"><ExternalLink /></a
           >
         </div>
       </div>
@@ -66,31 +64,39 @@ import { CirclePlay } from "@lucide/astro";
             >VIDEO TUTORIAL</span
           >
           <h3 class="font-headline-md text-headline-md text-on-surface text-lg">
-            Next.js 14 Server Actions Patterns
+            Intro to React Formik
           </h3>
         </div>
-        <div
+        <a
+          href="https://youtu.be/k9Rod1Kk6H8"
           class="bg-surface-container-highest flex h-24 w-24 items-center justify-center rounded-lg"
         >
           <span
             class="material-symbols-outlined text-tertiary text-3xl"
             data-icon="play_circle"><CirclePlay /></span
           >
-        </div>
+        </a>
       </div>
       <!-- Resource 3 (Small) -->
       <div
         class="glass-panel bg-surface-container-high p-stack-md hover:border-tertiary/40 group flex flex-col justify-between rounded-xl transition-all md:col-span-1 md:row-span-1"
       >
         <span class="material-symbols-outlined text-tertiary" data-icon="book"
-          >book</span
+          ><Newspaper /></span
         >
         <h3 class="font-headline-md text-on-surface text-base">
-          API Design Patterns
+          Good UX Design Principles
         </h3>
-        <span class="text-label-mono font-label-mono text-on-surface-variant"
-          >PDF • 2MB</span
-        >
+        <div class="flex items-center justify-between">
+          <span class="text-label-mono font-label-mono text-on-surface-variant"
+            >Read time: 2 min</span
+          >
+          <a
+            href="https://medium.com/@codylillyw/what-makes-good-ux-design-8af5b174d4d2"
+            class="material-symbols-outlined group-hover:text-tertiary"
+            data-icon="open_in_new"><ExternalLink /></a
+          >
+        </div>
       </div>
       <!-- Resource 4 (Small) -->
       <div
@@ -98,14 +104,21 @@ import { CirclePlay } from "@lucide/astro";
       >
         <span
           class="material-symbols-outlined text-tertiary"
-          data-icon="code_blocks">code_blocks</span
+          data-icon="code_blocks"><Newspaper /></span
         >
         <h3 class="font-headline-md text-on-surface text-base">
-          TS Utility Types
+          React Hooks Summarized
         </h3>
-        <span class="text-label-mono font-label-mono text-on-surface-variant"
-          >SNIPPETS</span
-        >
+        <div class="flex items-center justify-between">
+          <span class="text-label-mono font-label-mono text-on-surface-variant"
+            >Read time: 5 min</span
+          >
+          <a
+            href="https://medium.com/@codylillyw/react-hooks-summarized-423cd799e653"
+            class="material-symbols-outlined group-hover:text-tertiary"
+            data-icon="open_in_new"><ExternalLink /></a
+          >
+        </div>
       </div>
     </div>
   </div>
