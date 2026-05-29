@@ -3,6 +3,7 @@ import {
   InvokeModelCommand,
 } from "@aws-sdk/client-bedrock-runtime";
 import fs from "fs";
+import data from "../data/content.js";
 
 const client = new BedrockRuntimeClient({
   region: "us-east-1",
@@ -25,11 +26,10 @@ async function getEmbedding(text) {
 }
 
 async function main() {
-  const data = JSON.parse(fs.readFileSync("./src/data/content.json"));
-
   const embedded = [];
 
   for (const item of data) {
+    if (!item.content) continue;
     const embedding = await getEmbedding(item.content);
 
     embedded.push({
@@ -41,6 +41,7 @@ async function main() {
   fs.writeFileSync(
     "./src/data/embeddings.json",
     JSON.stringify(embedded, null, 2),
+    "utf-8",
   );
 }
 

@@ -60,8 +60,11 @@ export const POST = (async ({ request }) => {
   }));
 
   scored.sort((a, b) => b.score - a.score);
-
-  return new Response(JSON.stringify(scored.slice(0, 5)), {
-    headers: { "Content-Type": "application/json" },
-  });
+  console.log(scored.map((item) => item.score));
+  return new Response(
+    JSON.stringify(scored.filter((val) => val.score > 0.03).slice(0, 5)),
+    {
+      headers: { "Content-Type": "application/json" },
+    },
+  );
 }) satisfies APIRoute;

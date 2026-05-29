@@ -99,7 +99,13 @@ const Hero = () => {
         </p>
 
         <div className="mt-8 flex items-center justify-center gap-3">
-          <form className="tablet:w-xl w-md">
+          <form
+            className="tablet:w-xl w-md"
+            onSubmit={(e) => {
+              e.preventDefault();
+              handleSearch();
+            }}
+          >
             <div className="relative">
               <Input
                 aria-label="Search projects, articles, or videos"
