@@ -1,0 +1,1 @@
+import{j as s,B as l}from"./button.BwdY5t1_.js";import"./index.Bb60DpJX.js";const m=({id:t,children:o,variant:e="default",className:r=""})=>s.jsx(l,{variant:e,className:r,onClick:()=>{document.getElementById(t)?.scrollIntoView({behavior:"smooth",block:"start"})},children:o});export{m as default};
