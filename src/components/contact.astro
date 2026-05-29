@@ -1,0 +1,54 @@
+<h2
+  class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface mb-stack-md mt-16"
+>
+  Contact
+</h2>
+<div class="lg:col-span-7">
+  <form
+    class="space-y-6"
+    method="POST"
+    action="https://formspree.io/f/xoqpbeaw"
+  >
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div class="space-y-2">
+        <label
+          class="font-label-mono text-label-mono text-on-surface-variant block tracking-wider uppercase"
+          >Name</label
+        >
+        <input
+          class="bg-surface-container-low border-outline-variant/30 text-on-surface focus:border-tertiary focus:ring-tertiary w-full rounded-lg border p-4 transition-all outline-none focus:ring-1"
+          placeholder="John Doe"
+          type="text"
+        />
+      </div>
+      <div class="space-y-2">
+        <label
+          class="font-label-mono text-label-mono text-on-surface-variant block tracking-wider uppercase"
+          >Email</label
+        >
+        <input
+          class="bg-surface-container-low border-outline-variant/30 text-on-surface focus:border-tertiary focus:ring-tertiary w-full rounded-lg border p-4 transition-all outline-none focus:ring-1"
+          placeholder="john@example.com"
+          type="email"
+        />
+      </div>
+    </div>
+    <div class="space-y-2">
+      <label
+        class="font-label-mono text-label-mono text-on-surface-variant block tracking-wider uppercase"
+        >Message</label
+      >
+      <textarea
+        class="bg-surface-container-low border-outline-variant/30 text-on-surface focus:border-tertiary focus:ring-tertiary w-full resize-none rounded-lg border p-4 transition-all outline-none focus:ring-1"
+        placeholder="Tell me about your project..."
+        rows="5"></textarea>
+    </div>
+    <button
+      class="bg-tertiary text-primary-container flex items-center gap-2 rounded-lg px-8 py-4 font-bold transition-all hover:brightness-110"
+      type="submit"
+    >
+      Send Message
+      <span class="material-symbols-outlined" data-icon="send">send</span>
+    </button>
+  </form>
+</div>
