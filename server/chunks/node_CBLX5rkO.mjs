@@ -1,5 +1,5 @@
-import { r as removeQueryString, A as AstroError, N as NoImageMetadata, m as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, o as joinPaths, E as ExpectedImage, n as isRemotePath, L as LocalImageUsedWrongly, g as MissingImageDimension, i as UnsupportedImageFormat, d as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, f as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, p as maybeRenderHead, j as addAttribute, w as spreadAttributes, v as renderTemplate, c as FontFamilyNotFound, y as unescapeHTML, M as MissingGetFontFileRequestUrl, l as isParentDirectory } from './server_D5IeOj7h.mjs';
-import { c as createComponent } from './astro-component_BoE5ze0c.mjs';
+import { r as removeQueryString, A as AstroError, N as NoImageMetadata, m as isRemoteAllowed, F as FailedToFetchRemoteImageDimensions, R as RemoteImageNotAllowed, o as joinPaths, E as ExpectedImage, n as isRemotePath, L as LocalImageUsedWrongly, g as MissingImageDimension, i as UnsupportedImageFormat, d as IncompatibleDescriptorOptions, U as UnsupportedImageConversion, f as InvalidImageService, a as ExpectedImageOptions, b as ExpectedNotESMImage, I as ImageMissingAlt, p as maybeRenderHead, j as addAttribute, w as spreadAttributes, v as renderTemplate, c as FontFamilyNotFound, y as unescapeHTML, M as MissingGetFontFileRequestUrl, l as isParentDirectory } from './server_BWfx3Eg3.mjs';
+import { c as createComponent } from './astro-component_Dohnnj0M.mjs';
 import 'clsx';
 import * as mime from 'mrmime';
 import 'piccolore';
@@ -1485,7 +1485,7 @@ const baseService = {
     Object.entries(params).forEach(([param, key]) => {
       options[key] && searchParams.append(param, options[key].toString());
     });
-    const imageEndpoint = joinPaths("/", imageConfig.endpoint.route);
+    const imageEndpoint = joinPaths("/astro-portfolio/", imageConfig.endpoint.route);
     let url = `${imageEndpoint}?${searchParams}`;
     if (imageConfig.assetQueryParams) {
       const assetQueryString = imageConfig.assetQueryParams.toString();
@@ -1553,7 +1553,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      './sharp_XQtqV1wW.mjs'
+      './sharp_BsMcY6Iv.mjs'
     ).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;

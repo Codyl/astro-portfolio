@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_BoE5ze0c.mjs';
+import { c as createComponent } from './astro-component_Dohnnj0M.mjs';
 import 'piccolore';
-import { u as renderSlot, v as renderTemplate, p as maybeRenderHead, w as spreadAttributes, j as addAttribute, s as renderComponent, t as renderHead } from './server_D5IeOj7h.mjs';
+import { u as renderSlot, v as renderTemplate, p as maybeRenderHead, w as spreadAttributes, j as addAttribute, s as renderComponent, t as renderHead } from './server_BWfx3Eg3.mjs';
 import { clsx } from 'clsx';
 import { jsx, jsxs } from 'react/jsx-runtime';
 import React, { useState, useRef, useEffect } from 'react';
@@ -959,7 +959,7 @@ const $$Index = createComponent(($$result, $$props, $$slots) => {
 }, "/home/runner/work/astro-portfolio/astro-portfolio/src/pages/index.astro", void 0);
 
 const $$file = "/home/runner/work/astro-portfolio/astro-portfolio/src/pages/index.astro";
-const $$url = "";
+const $$url = "/astro-portfolio";
 
 const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
   __proto__: null,
