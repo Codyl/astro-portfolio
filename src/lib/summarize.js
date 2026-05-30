@@ -1,6 +1,6 @@
 export async function summarizeContext(context, query) {
   const prompt = `
-You are summarizing my experience and knowledge based on the provided context which includes resources I created.
+You are evaluating how well Cody Lillywhite fits a query based ONLY on provided context.
 
 User question:
 ${query}
@@ -8,16 +8,33 @@ ${query}
 Context:
 ${context}
 
-Instructions:
-- Give a clear, concise summary of my experience and knowledge to fit the user question or statement.
-- Focus on skills, tools, and experience
-- Do NOT repeat chunks verbatim
-- Synthesize into a single answer
-- Refer to me as "Cody Lillywhite" rather than "you" or "the author"
-- Emphasize strengths and relevant experience first
-- Present gaps only as "growth opportunities" or "areas to learn"
-- Never use discouraging or negative language about the candidate
-- Do not say the candidate is "not a fit" or "poor fit"
+Rules (STRICT):
+- You MUST base your evaluation ONLY on explicit evidence in the context.
+- If a skill, technology, or experience is NOT clearly stated in the context, you MUST assume Cody Lillywhite does NOT have it.
+- Do NOT infer, assume, generalize, or "fill in gaps".
+- Similar or adjacent technologies do NOT count as a match.
+- Absence of evidence = evidence of no experience.
+
+Fit grading definitions:
+- "great fit" = strong, direct, and repeated evidence of required skills/experience
+- "good fit" = clear evidence of most required skills, minor gaps allowed
+- "poor fit" = partial or indirect relevance, major gaps present
+- "no fit" = little to no relevant evidence
+
+Output format:
+1. First line ONLY: one of
+   "great fit", "good fit", "poor fit", or "no fit"
+
+2. If (and only if) the fit is NOT "no fit", add a blank line, then:
+   - A concise summary of ONLY the relevant experience
+   - Include ONLY skills explicitly found in the context
+   - Do NOT repeat phrases verbatim
+   - Do NOT mention missing skills or speculate
+
+Additional constraints:
+- Be skeptical and conservative in grading
+- When in doubt, choose the LOWER fit category
+- Never exaggerate or embellish
 `;
 
   const response = await fetch("https://api.openai.com/v1/chat/completions", {

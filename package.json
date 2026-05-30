@@ -9,10 +9,12 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "eslint . --ext .ts,.tsx --ignore-path .gitignore",
+    "format": "prettier --write . --ignore-path .gitignore",
+    "embed-content": "node src/scripts/embed-content.js"
   },
   "dependencies": {
-    "@astrojs/node": "^10.1.2",
     "@astrojs/partytown": "^2.1.7",
     "@astrojs/react": "^5.0.5",
     "@astrojs/vercel": "^10.0.8",

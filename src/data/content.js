@@ -2244,7 +2244,32 @@ While developing the site in react I realized several variables could be named b
     title: "NodeJS Experience",
     description: "Experience using node.",
     url: "https://www.linkedin.com/in/cody-lillywhite/",
-    tags: ["node"],
+    tags: [
+      "node",
+      "react",
+      "resume",
+      "experience",
+      "fullstack",
+      "software engineer",
+      "mongodb",
+      "nestjs",
+      "typescript",
+      "cypress",
+      "stripe",
+      "sendgrid",
+      "aws cognito",
+      "jest",
+      "swagger",
+      "react",
+      "tanstack router",
+      "tailwind css",
+      "scss",
+      "styled-components",
+      "figma",
+      "redux",
+      "cognito",
+      "aws",
+    ],
     content: `                      Cody Lillywhite
 208-600-7314 | Rexburg, ID | codylillyw@gmail.com | Github | LinkedIn
 Summary 	 	 	 	 	 	 	___ _  	 	 	 	  
@@ -2292,5 +2317,158 @@ Frontend: React, TanStack Router, Tailwind CSS, SCSS, styled-components, Figma, 
 Backend: Node.js, Express.js, Nest.js, Mongoose, Jest, Swagger, AWS Cognito, MongoDB
 
 `,
+  },
+  {
+    id: "resume2",
+    type: "resume",
+    title: "React Experience",
+    description: "Experience using react.",
+    url: "https://www.linkedin.com/in/cody-lillywhite/",
+    tags: ["node", "react", "MERN", "SaaS", "typescript"],
+    content: `
+www.linkedin.com/in/cody-lillywhite
+(LinkedIn)
+github.com/Codyl (Portfolio)
+Top Skills
+MERN Stack
+SaaS Development
+TypeScript
+Certifications
+Agile Foundations
+React.js Essential Training
+Python Essential Training
+Amazon Web Services Cloud
+Practitioner
+Responsive Web Design
+Publications
+Improving software quality in short
+term group projects
+Portfolio Creation Process
+Cody Lillywhite
+Full Stack Developer
+Rexburg, Idaho, United States
+Summary
+A versatile and quick learner with valuable experience through
+online training of OOP, JavaScript frameworks seeking a full
+stack developer role.Languages: HTML, CSS, JavaScript,
+TypeScript, PythonFrameworks: React.JS, Angular, Node.JS,
+Express.JSLibraries/Modules: Multer, Redux, Redux-Thunk,
+React-router, Jest, MongooseDatabases: MongoDB, Postgres,
+FirebaseVersion Control: Git, GitHubUX: Figma, Adobe XDStyling:
+SCSS, Styled-Components, TailwindcssDeployment: AWS S3, AWS
+EBS, Heroku, Netlify
+Experience
+HireMySub
+Full Stack Developer
+September 2022 - March 2026 (3 years 7 months)
+❖ Developed a fully automated testing framework, achieving 100% coverage
+of critical user flows.  
+❖ Streamlined API documentation processes, providing real-time access for
+the frontend team.  
+❖ Collaborated with leadership to enhance systems and resolve bugs in
+fintech and communications domains.
+Quikix
+Full Stack Developer
+September 2024 - March 2025 (7 months)
+❖ Co-authored a greenfield mobile application, overseeing the core
+authentication flow and user-centric features using Expo Router.  
+❖ Delivered a production-ready MVP from concept to App Store submission in
+just 7 months during a part-time contract.  
+❖ Developed a full-stack engagement engine, including a nested commenting
+system and voting logic, ensuring data consistency.
+Brigham Young University - Idaho
+ Page 1 of 2
+  
+Web Development Tutor
+April 2022 - September 2022 (6 months)
+Idaho, United States
+Helped resolve bugs and provide guidance on how to work with html,
+JavaScript, and PHP.
+Education
+Brigham Young University - Idaho
+Bachelor of Software engineering, Computer Science · (September
+2017 - December 2023)
+Nucamp Coding Bootcamp
+Full Stack Web Development · (September 2021 - February 2022)
+freeCodeCamp
+HTTP, CSS, JS · (February 2021 - December 2026)
+ Page 2 of 2`,
+  },
+  {
+    id: "github1",
+    type: "repository",
+    title: "project 1",
+    description: "A project I created.",
+    url: "https://github.com/Codyl",
+    tags: ["node", "react", "MERN", "SaaS", "typescript"],
+    content: `[REPOSITORY EVIDENCE]
+
+Project: Astro Portfolio Website
+- Tech Stack: Astro, React, TypeScript, Tailwind CSS
+- Type: Static site / developer portfolio
+
+Responsibilities:
+- Built a performant portfolio website using Astro with static site generation
+- Integrated React components for interactive UI elements (client-side interactivity)
+- Styled the application using Tailwind CSS for responsive and modern design
+- Structured the project using component-based architecture (Astro + React components)
+- Configured project tooling and build setup using Node.js ecosystem
+
+Features:
+- Interactive UI components (React-based)
+- Contact form integration using external service (Formspree)
+- Third-party embedding (e.g., Spotify content)
+- Responsive layout and modern UI design
+- Static site optimized for performance and deployment
+
+Capabilities demonstrated:
+- Building frontend applications using React within a hybrid framework (Astro islands architecture)
+- Creating component-based UI systems across Astro and React
+- Implementing responsive design with Tailwind CSS
+- Integrating third-party APIs/services into a web application
+- Structuring and deploying static web applications
+`,
+  },
+  {
+    id: "github2",
+    type: "repository",
+    title: "project 2",
+    description: "A project I created.",
+    url: "https://github.com/Codyl",
+    tags: ["node", "react", "MERN", "SaaS", "typescript"],
+    content: `[REPOSITORY EVIDENCE]
+
+Project: Dragons Nest Portal
+
+- Tech Stack: TypeScript, Node.js
+- Type: Backend service exposing structured feature data
+
+Responsibilities:
+- Implemented a Node.js server written in TypeScript
+- Created functions to retrieve and update feature data (list_features, get_feature, update_feature)
+- Structured feature data using a file-based system with multiple documents per feature (requirements, design, implementation, QA)
+- Configured the server to run in both local (stdio) and HTTP/SSE modes
+- Integrated GitHub authentication using a personal access token
+
+Features:
+- Feature retrieval and update operations via defined functions/tools
+- File-based feature organization with multiple documentation layers
+- Support for external clients connecting via HTTP/SSE or local execution
+
+Capabilities demonstrated:
+- Building backend functionality using Node.js and TypeScript
+- Designing and working with structured file-based data systems
+- Implementing programmatic interfaces for reading and updating data
+- Handling environment configuration and external authentication (GitHub token)
+`,
+  },
+  {
+    id: "github3",
+    type: "repository",
+    title: "project 3",
+    description: "A project I created.",
+    url: "https://github.com/Codyl/project-3",
+    tags: ["node", "react", "MERN", "SaaS", "typescript"],
+    content: `Built a Node.js + Express REST API with MongoDB, implementing modular architecture (routes/controllers/models), authentication middleware, and scalable endpoint design. Developed structured backend services to support a full-stack application with clean separation of concerns and maintainable code patterns.`,
   },
 ];

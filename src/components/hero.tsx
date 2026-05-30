@@ -17,6 +17,7 @@ const MONTHLY_SUMMARY_LIMIT = 15;
 const Hero = () => {
   const [query, setQuery] = useState("");
   const [isSummaryMode, setIsSummaryMode] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [results, setResults] = useState<
     { id: string; title: string; description: string; url: string }[]
   >([]);
@@ -24,19 +25,22 @@ const Hero = () => {
   const hasStarted = React.useRef(false);
 
   let monthYearUsageCount = 0;
-  try {
-    monthYearUsageCount = parseInt(
-      localStorage.getItem(
-        new Date().getMonth().toString() +
-          "-" +
-          new Date().getFullYear().toString(),
-      ) || "0",
-    );
-  } catch {
-    // ignore parsing errors and default to 0
-  }
+
+  const monthYearKey =
+    new Date().getMonth().toString() +
+    "-" +
+    new Date().getFullYear().toString();
+
+  useEffect(() => {
+    try {
+      monthYearUsageCount = parseInt(localStorage.getItem(monthYearKey) || "0");
+    } catch {
+      // ignore parsing errors and default to 0
+    }
+  }, []);
 
   async function handleSearch() {
+    setIsLoading(true);
     if (
       query.length === 0 ||
       (isSummaryMode ? query.length >= 200 : query.length >= 100) ||
@@ -45,7 +49,7 @@ const Hero = () => {
       return;
     }
 
-    const res = await fetch(import.meta.env.VITE_API_URL + "/api/search", {
+    const res = await fetch(import.meta.env.PUBLIC_API_URL + "/api/search", {
       method: "POST",
       body: JSON.stringify({
         inputText: query,
@@ -66,14 +70,9 @@ const Hero = () => {
       setSummary("");
       setResults(data);
     }
-    const monthYearKey =
-      new Date().getMonth().toString() +
-      "-" +
-      new Date().getFullYear().toString();
-    localStorage.setItem(
-      monthYearKey,
-      localStorage.getItem(monthYearKey) || "0",
-    );
+
+    localStorage.setItem(monthYearKey, (monthYearUsageCount + 1).toString());
+    setIsLoading(false);
   }
 
   const animate = () => {
@@ -209,6 +208,7 @@ const Hero = () => {
                   e.preventDefault();
                   handleSearch();
                 }}
+                isLoading={isLoading}
               >
                 Search
               </Button>
