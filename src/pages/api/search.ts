@@ -6,6 +6,7 @@ import {
 import { cosineSimilarity } from "../../lib/similarity";
 import embeddings from "../../data/embeddings.json";
 import { ask } from "../../lib/ask";
+import { getSecret } from "astro:env/server";
 
 const client = new BedrockRuntimeClient({
   region: "us-east-1",
@@ -48,7 +49,10 @@ export const POST = (async ({ request }) => {
   if (!inputText) {
     return new Response(JSON.stringify({ error: "Missing inputText" }), {
       status: 400,
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": getSecret("PUBLIC_APP_URL") || "",
+      },
     });
   }
 
@@ -56,7 +60,10 @@ export const POST = (async ({ request }) => {
     const result = await ask(inputText, embeddings);
 
     return new Response(JSON.stringify(result), {
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "Access-Control-Allow-Origin": getSecret("PUBLIC_APP_URL") || "",
+      },
     });
   }
 
