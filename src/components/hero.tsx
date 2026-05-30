@@ -23,6 +23,7 @@ const Hero = () => {
   >([]);
   const [summary, setSummary] = useState("");
   const hasStarted = React.useRef(false);
+  const searchResultsRef = React.useRef<HTMLDivElement>(null);
 
   let monthYearUsageCount = 0;
 
@@ -130,6 +131,20 @@ const Hero = () => {
     animate();
   }, []);
 
+  useEffect(() => {
+    if (searchResultsRef.current) {
+      searchResultsRef.current.scrollTop = 0;
+    }
+  }, [results]);
+
+  useEffect(() => {
+    if (isSummaryMode) {
+      setResults([]);
+    } else {
+      setSummary("");
+    }
+  }, [isSummaryMode]);
+
   return (
     <section className="relative flex h-screen items-center justify-center overflow-hidden">
       <Backdrop />
@@ -188,7 +203,11 @@ const Hero = () => {
                     : "Search projects, articles, or videos..."
                 }
                 className="bg-surface-container h-12 truncate pr-20 pl-12"
-                onChange={(e) => setQuery(e.target.value)}
+                onChange={(e) => {
+                  setSummary("");
+                  setResults([]);
+                  setQuery(e.target.value);
+                }}
                 value={query}
                 maxLength={isSummaryMode ? 200 : 100}
               />
@@ -217,7 +236,10 @@ const Hero = () => {
             </div>
           </form>
         </div>
-        <div className="absolute left-1/2 mt-4 max-h-64 w-lg -translate-x-1/2 divide-y-2 overflow-auto">
+        <div
+          className="tablet:w-xl absolute left-1/2 max-h-64 w-md -translate-x-1/2 divide-y-2 overflow-auto"
+          ref={searchResultsRef}
+        >
           {results.map((item) => (
             <div
               key={item.id}

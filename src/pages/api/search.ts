@@ -34,58 +34,79 @@ async function getEmbedding(inputText: string) {
 }
 
 export const POST = (async ({ request }) => {
-  let body: { inputText?: string; isGenerative?: boolean } = {};
-  if (request.headers.get("Content-Type") === "application/json") {
-    try {
-      body = await request.json();
-    } catch (error) {
-      return new Response(
-        JSON.stringify({
-          error: error instanceof Error ? error.message : String(error),
-        }),
-        {
-          status: 400,
-          headers: { "Content-Type": "application/json" },
-        },
-      );
+  try {
+    let body: { inputText?: string; isGenerative?: boolean } = {};
+    if (request.headers.get("Content-Type") === "application/json") {
+      try {
+        body = await request.json();
+      } catch (error) {
+        return new Response(
+          JSON.stringify({
+            error: error instanceof Error ? error.message : String(error),
+          }),
+          {
+            status: 400,
+            headers: { "Content-Type": "application/json" },
+          },
+        );
+      }
     }
-  }
-  const inputText = typeof body?.inputText === "string" ? body.inputText : "";
-  if (!inputText) {
-    return new Response(JSON.stringify({ error: "Missing inputText" }), {
-      status: 400,
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":
-          "https://astro-portfolio-hazel-two.vercel.app",
+    const inputText = typeof body?.inputText === "string" ? body.inputText : "";
+    if (!inputText) {
+      return new Response(JSON.stringify({ error: "Missing inputText" }), {
+        status: 400,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":
+            "https://astro-portfolio-hazel-two.vercel.app",
+        },
+      });
+    }
+
+    if (body.isGenerative) {
+      const result = await ask(inputText, embeddings);
+
+      return new Response(JSON.stringify(result), {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":
+            "https://astro-portfolio-hazel-two.vercel.app",
+        },
+      });
+    }
+
+    const queryEmbedding = await getEmbedding(inputText);
+
+    const scored = embeddings.map((item) => ({
+      ...item,
+      score: cosineSimilarity(queryEmbedding, item.embedding),
+    }));
+
+    scored.sort((a, b) => b.score - a.score);
+    return new Response(
+      JSON.stringify(scored.filter((val) => val.score > 0.03).slice(0, 5)),
+      {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":
+            "https://astro-portfolio-hazel-two.vercel.app",
+        },
       },
-    });
-  }
-
-  if (body.isGenerative) {
-    const result = await ask(inputText, embeddings);
-
-    return new Response(JSON.stringify(result), {
-      headers: {
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":
-          "https://astro-portfolio-hazel-two.vercel.app",
+    );
+  } catch (error) {
+    console.error("Error in POST handler:", error);
+    return new Response(
+      JSON.stringify({
+        error: error instanceof Error ? error.message : String(error),
+      }),
+      {
+        status: 500,
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin":
+            "https://astro-portfolio-hazel-two.vercel.app",
+        },
       },
-    });
+    );
   }
-
-  const queryEmbedding = await getEmbedding(inputText);
-
-  const scored = embeddings.map((item) => ({
-    ...item,
-    score: cosineSimilarity(queryEmbedding, item.embedding),
-  }));
-
-  scored.sort((a, b) => b.score - a.score);
-  return new Response(
-    JSON.stringify(scored.filter((val) => val.score > 0.03).slice(0, 5)),
-    {
-      headers: { "Content-Type": "application/json" },
-    },
-  );
 }) satisfies APIRoute;
