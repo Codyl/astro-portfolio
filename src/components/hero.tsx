@@ -40,7 +40,6 @@ const Hero = () => {
   }, []);
 
   async function handleSearch() {
-    setIsLoading(true);
     if (
       query.length === 0 ||
       (isSummaryMode ? query.length >= 200 : query.length >= 100) ||
@@ -49,6 +48,7 @@ const Hero = () => {
       return;
     }
 
+    setIsLoading(true);
     const res = await fetch(import.meta.env.PUBLIC_API_URL + "/api/search", {
       method: "POST",
       body: JSON.stringify({
@@ -59,6 +59,7 @@ const Hero = () => {
     });
     if (!res.ok) {
       const errText = await res.text();
+      setIsLoading(false);
       throw new Error(errText);
     }
 
@@ -175,6 +176,7 @@ const Hero = () => {
             </label>
             <div className="relative">
               <Input
+                autoFocus
                 aria-label={
                   isSummaryMode
                     ? "Ask a question"
