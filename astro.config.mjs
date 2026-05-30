@@ -5,11 +5,9 @@ import tailwindcss from "@tailwindcss/vite";
 
 import vercel from "@astrojs/vercel";
 
-// https://astro.build/config
 export default defineConfig({
   output: "server",
-  site: "https://Codyl.github.io",
-  base: "/astro-portfolio/",
+  site: "https://astro-portfolio-ovrx4w8jc-cody-lillywhites-projects.vercel.app/",
   vite: {
     plugins: [tailwindcss()],
   },
