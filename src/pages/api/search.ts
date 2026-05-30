@@ -6,7 +6,6 @@ import {
 import { cosineSimilarity } from "../../lib/similarity";
 import embeddings from "../../data/embeddings.json";
 import { ask } from "../../lib/ask";
-import { getSecret } from "astro:env/server";
 
 const client = new BedrockRuntimeClient({
   region: "us-east-1",
@@ -51,7 +50,8 @@ export const POST = (async ({ request }) => {
       status: 400,
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": getSecret("PUBLIC_APP_URL") || "",
+        "Access-Control-Allow-Origin":
+          "https://astro-portfolio-hazel-two.vercel.app",
       },
     });
   }
@@ -62,7 +62,8 @@ export const POST = (async ({ request }) => {
     return new Response(JSON.stringify(result), {
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": getSecret("PUBLIC_APP_URL") || "",
+        "Access-Control-Allow-Origin":
+          "https://astro-portfolio-hazel-two.vercel.app",
       },
     });
   }
