@@ -19,7 +19,13 @@ async function getEmbedding(inputText: string) {
     body: JSON.stringify({ inputText }),
   });
 
-  const response = await client.send(command);
+  let response;
+  try {
+    response = await client.send(command);
+  } catch (error) {
+    console.error("Error invoking model:", error);
+    throw error;
+  }
 
   const raw = new TextDecoder().decode(response.body as Uint8Array);
   const parsed = JSON.parse(raw);
