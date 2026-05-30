@@ -234,7 +234,7 @@ const Hero = () => {
             </div>
           ))}
         </div>
-        {40 >= MONTHLY_SUMMARY_LIMIT && isSummaryMode && (
+        {monthYearUsageCount >= MONTHLY_SUMMARY_LIMIT && isSummaryMode && (
           <div className="absolute left-1/2 mt-4 w-full max-w-4xl -translate-x-1/2">
             <div className="bg-surface-container-high rounded border p-3">
               <h2 className="font-bold">Monthly Summary Limit Reached</h2>
