@@ -21,6 +21,7 @@ import { SendHorizontal } from "@lucide/astro";
             >Name</label
           >
           <input
+            name="name"
             class="bg-surface-container-low border-outline-variant/30 text-on-surface focus:border-tertiary focus:ring-tertiary w-full rounded-lg border p-4 transition-all outline-none focus:ring-1"
             placeholder="John Doe"
             type="text"
@@ -32,6 +33,7 @@ import { SendHorizontal } from "@lucide/astro";
             >Email</label
           >
           <input
+            name="email"
             class="bg-surface-container-low border-outline-variant/30 text-on-surface focus:border-tertiary focus:ring-tertiary w-full rounded-lg border p-4 transition-all outline-none focus:ring-1"
             placeholder="john@example.com"
             type="email"
@@ -44,6 +46,7 @@ import { SendHorizontal } from "@lucide/astro";
           >Message</label
         >
         <textarea
+          name="message"
           class="bg-surface-container-low border-outline-variant/30 text-on-surface focus:border-tertiary focus:ring-tertiary w-full resize-none rounded-lg border p-4 transition-all outline-none focus:ring-1"
           placeholder="Tell me about your project..."
           rows="5"></textarea>
