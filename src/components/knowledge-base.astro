@@ -4,10 +4,10 @@ import { CirclePlay, ExternalLink, Newspaper } from "@lucide/astro";
 
 <section id="knowledge-base" class="text-primary mt-16">
   <div
-    class="gap-stack-sm border-outline-variant/20 pb-stack-sm flex flex-col justify-between border-b md:flex-row md:items-end"
+    class="gap-stack-sm border-outline-variant/20 pb-stack-sm tablet:flex-row tablet:items-end flex flex-col justify-between border-b"
   >
     <h2
-      class="font-display-lg text-display-lg-mobile md:text-display-lg text-on-surface"
+      class="font-display-lg text-display-lg-mobile tablet:text-display-lg text-on-surface"
     >
       Knowledge base
     </h2>
@@ -21,11 +21,11 @@ import { CirclePlay, ExternalLink, Newspaper } from "@lucide/astro";
   <!-- Technical Resources Section (Bento Grid) -->
   <div class="space-y-stack-lg">
     <div
-      class="gap-stack-sm grid min-h-150 grid-cols-1 md:grid-cols-4 md:grid-rows-2"
+      class="gap-stack-sm tablet:grid-cols-4 tablet:grid-rows-2 grid min-h-150 grid-cols-1"
     >
       <!-- Resource 1 (Large) -->
       <div
-        class="bg-surface-container-high glass-panel p-stack-md hover:border-tertiary/40 group flex flex-col justify-between rounded-xl transition-all md:col-span-2 md:row-span-2"
+        class="bg-surface-container-high glass-panel desktop:p-stack-md hover:border-tertiary/40 group tablet:col-span-2 tablet:row-span-2 flex flex-col justify-between rounded-xl p-4 transition-all"
       >
         <div class="space-y-stack-sm">
           <div class="flex items-start justify-between">
@@ -57,7 +57,7 @@ import { CirclePlay, ExternalLink, Newspaper } from "@lucide/astro";
       </div>
       <!-- Resource 2 (Medium) -->
       <div
-        class="glass-panel bg-surface-container-high p-stack-md gap-stack-md hover:border-tertiary/40 group flex items-center rounded-xl transition-all md:col-span-2 md:row-span-1"
+        class="glass-panel bg-surface-container-high desktop:p-stack-md gap-stack-md hover:border-tertiary/40 group tablet:col-span-2 tablet:row-span-1 flex items-center rounded-xl p-4 transition-all"
       >
         <div class="flex-1 space-y-2">
           <span class="text-label-mono font-label-mono text-on-surface-variant"
@@ -79,7 +79,7 @@ import { CirclePlay, ExternalLink, Newspaper } from "@lucide/astro";
       </div>
       <!-- Resource 3 (Small) -->
       <div
-        class="glass-panel bg-surface-container-high p-stack-md hover:border-tertiary/40 group flex flex-col justify-between rounded-xl transition-all md:col-span-1 md:row-span-1"
+        class="glass-panel bg-surface-container-high desktop:p-stack-md hover:border-tertiary/40 group tablet:col-span-1 tablet:row-span-1 flex flex-col justify-between rounded-xl p-4 transition-all"
       >
         <span class="material-symbols-outlined text-tertiary" data-icon="book"
           ><Newspaper /></span
@@ -100,7 +100,7 @@ import { CirclePlay, ExternalLink, Newspaper } from "@lucide/astro";
       </div>
       <!-- Resource 4 (Small) -->
       <div
-        class="glass-panel bg-surface-container-high p-stack-md hover:border-tertiary/40 group flex flex-col justify-between rounded-xl transition-all md:col-span-1 md:row-span-1"
+        class="glass-panel bg-surface-container-high desktop:p-stack-md hover:border-tertiary/40 group tablet:col-span-1 tablet:row-span-1 flex flex-col justify-between rounded-xl p-4 transition-all"
       >
         <span
           class="material-symbols-outlined text-tertiary"

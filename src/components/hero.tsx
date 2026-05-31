@@ -149,10 +149,10 @@ const Hero = () => {
     <section className="relative flex h-screen items-center justify-center overflow-hidden">
       <Backdrop />
       <div className="text-center">
-        <h1 className="text-primary text-5xl leading-none font-extrabold tracking-tight md:text-6xl">
+        <h1 className="text-primary tablet:text-6xl text-5xl leading-none font-extrabold tracking-tight">
           <span id="capability"></span>
           <span className="typewriter-cursor text-tertiary">|</span>
-          <span className="text-tertiary">Engineer</span>
+          <span className="text-tertiary tablet:inline block">Engineer</span>
         </h1>
         <p className="sr-only">
           Search projects, articles, and case studies — tools and writing about
@@ -161,7 +161,7 @@ const Hero = () => {
 
         <div className="mt-8 flex items-center justify-center gap-3">
           <form
-            className="tablet:w-xl w-md"
+            className="tablet:w-xl w-xs"
             onSubmit={(e) => {
               e.preventDefault();
               handleSearch();
@@ -237,7 +237,7 @@ const Hero = () => {
           </form>
         </div>
         <div
-          className="tablet:w-xl absolute left-1/2 max-h-64 w-md -translate-x-1/2 divide-y-2 overflow-auto"
+          className="tablet:w-xl absolute left-1/2 max-h-64 w-xs -translate-x-1/2 divide-y-2 overflow-auto"
           ref={searchResultsRef}
         >
           {results.map((item) => (
@@ -300,7 +300,7 @@ const Hero = () => {
           </div>
         )}
 
-        <div className="mt-6 flex items-center justify-center gap-3">
+        <div className="tablet:flex mt-6 hidden items-center justify-center gap-3">
           <ScrollButton variant="outline" className="text-primary" id="contact">
             <SendHorizontal className="mr-2 size-4" />
             Contact Me

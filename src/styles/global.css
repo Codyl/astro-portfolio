@@ -1,8 +1,9 @@
 @import "tailwindcss";
 
 @theme {
+  --breakpoint-*: initial;
   --breakpoint-tablet: 640px;
-  --breakpoint-desktop: 1024px;
+  --breakpoint-desktop: 1440px;
 
   --color-*: initial;
 
@@ -60,28 +61,28 @@
   --radius-full: 0.75rem;
 
   --spacing-gutter: 32px;
-  --spacing-stack-md: 32px;
+  --spacing-stack-tablet: 32px;
   --spacing-unit: 8px;
   --spacing-stack-sm: 16px;
   --spacing-container-max: 1200px;
   --spacing-section-padding: 128px;
   --spacing-stack-lg: 64px;
 
-  --font-body-md: Inter;
+  --font-body-tablet: Inter;
   --font-code: JetBrains Mono;
   --font-body-lg: Inter;
   --font-display-2xl: Inter;
   --font-display-lg: Inter;
-  --font-headline-md: Inter;
+  --font-headline-tablet: Inter;
   --font-display-lg-mobile: Inter;
   --font-label-mono: Geist;
 
-  --text-body-md: 16px;
+  --text-body-tablet: 16px;
   --text-code: 14px;
   --text-body-lg: 18px;
   --text-display-2xl: 48px;
   --text-display-lg: 40px;
-  --text-headline-md: 24px;
+  --text-headline-tablet: 24px;
   --text-display-lg-mobile: 32px;
   --text-label-mono: 12px;
 }

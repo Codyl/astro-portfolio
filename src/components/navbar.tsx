@@ -20,17 +20,19 @@ export default function Navbar() {
               <NavigationMenuTrigger className="text-primary">
                 <Menu className="size-5" />
               </NavigationMenuTrigger>
-              <NavigationMenuContent className="bg-elevated flex flex-col space-y-2 p-4">
+              <NavigationMenuContent className="bg-surface-container-high flex flex-col space-y-2 p-4">
                 <ul className="w-max">
-                  <NavigationContentItem to="/">Home</NavigationContentItem>
-                  <NavigationContentItem to="/projects">
+                  <NavigationContentItem elementId="about">
+                    About
+                  </NavigationContentItem>
+                  <NavigationContentItem elementId="projects">
                     Projects
                   </NavigationContentItem>
-                  <NavigationContentItem to="/knowledge-base">
-                    Knowledge Base
+                  <NavigationContentItem elementId="contact">
+                    Contact
                   </NavigationContentItem>
-                  <NavigationContentItem to="/about">
-                    About
+                  <NavigationContentItem elementId="knowledge-base">
+                    Knowledge Base
                   </NavigationContentItem>
                 </ul>
               </NavigationMenuContent>
@@ -66,17 +68,6 @@ export default function Navbar() {
           <Button
             variant="link"
             onClick={() => {
-              document.getElementById("knowledge-base")?.scrollIntoView({
-                behavior: "smooth",
-                block: "start",
-              });
-            }}
-          >
-            Knowledge Base
-          </Button>
-          <Button
-            variant="link"
-            onClick={() => {
               document.getElementById("contact")?.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
@@ -84,6 +75,17 @@ export default function Navbar() {
             }}
           >
             Contact
+          </Button>
+          <Button
+            variant="link"
+            onClick={() => {
+              document.getElementById("knowledge-base")?.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+              });
+            }}
+          >
+            Knowledge Base
           </Button>
         </ul>
         <Button
