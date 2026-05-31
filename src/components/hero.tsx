@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { Input } from "./ui/input";
-import { Search, SendHorizontal, Rocket, Newspaper, Info } from "lucide-react";
+import {
+  Search,
+  SendHorizontal,
+  Rocket,
+  Newspaper,
+  Info,
+  X,
+} from "lucide-react";
 import ScrollButton from "./scroll-button";
 import Backdrop from "./backdrop";
 import { Button } from "./ui/button";
@@ -294,6 +301,10 @@ const Hero = () => {
         {summary && (
           <div className="absolute left-1/2 mx-4 mt-4 max-h-64 w-full max-w-4xl -translate-x-1/2 divide-y-2 overflow-auto">
             <div className="bg-surface-container-high rounded border p-3">
+              <X
+                onClick={() => setSummary("")}
+                className="text-tertiary absolute top-2 right-2 size-4 cursor-pointer"
+              />
               <h2 className="font-bold">AI Summary</h2>
               <p>{summary}</p>
             </div>
